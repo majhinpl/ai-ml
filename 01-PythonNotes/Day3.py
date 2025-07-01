@@ -1,106 +1,87 @@
 # Data cleanining
 
 """
-
-lstrip()
-rstrip()
-strip()
-replace()
+split() # split in the space by defauly
+capitalize() # First letter in the sentence will make capital
+title() # First letter of every word will make capitalize
 
 """
 """
-name = "   nephx"
-newName = name.lstrip()
-print(newName)
+name = "   ---nephx @@ neps 1121 _ "
+clean_name = name.strip(" -12_").replace(" @@ ", " ")
+print(clean_name.capitalize())
+
+# first_name nephx and last_name = neps
+
+first_name, last_name = clean_name.split()
+"""
+
+"""print(first_name)
+print(last_name)
+print(clean_name.split())
+"""
 
 
-name = "nephx    "
-newName = name.rstrip()
-print(newName)
-
-
-name = "   nephx    "
-newName = name.rstrip().lstrip()
-print(newName)
-
-
-name = "Saroj ** Adhikari"
-newName = name.replace(" ** ", " ").lstrip()
-print(newName)
-
-name = "___Saroj Adhikari"
-newName = name.lstrip("___")
-print(newName)
-
-
-name = "Saroj Adhikari +++++"
-newName = name.rstrip(" +++++")
-print(newName)
-
-
-name = "Saroj ++++ Adhikari"
-newName = name.replace("++++", " ")
-print(newName)
-
-name = "  nephx  "
-newName = name.strip()
-print(newName)
-
-name = "1nephx2"
-newName = name.strip("21")
-print(newName)
+"""
+name = "Altitude Attitude Alpha"
+firstname, middle, lastname = name.split()
+print(firstname)
+print(middle)
+print(lastname)
 
 """
 
-name = "    ---My --- Sister's name is Sujana 1 2 3 _ "
-
-# name = "My Sister's name is Sujana"
-
-# steps;
-
 """
-1. clear the front and rear part
-2. clear the middle part by using replace
-
+name = "Altitude. Attitude. Alpha."
+firstname, middle, lastname = name.strip(".").replace(". ", " ").split(". ")
+print(firstname)
+print(middle)
+print(lastname)
 """
 
-'''
-split()
-capatalize()
-title()
-'''
-name = "   ---sujata @@ pathak 1 2 3 __  "
-#sujata @@ pathak
-new_name = name.strip(" -123_")
-print(new_name)
+"""
+name = "  __-- firoj ##&& karki 123 @@"
+new_name = name.strip(" _-123@").replace(" ##&& ", " ").title()
 
-new_name1 = new_name.replace(" @@ ", " ")
-print(new_name1)
-# sujata pathak = Sujata Pathak
-new_name_final = new_name1.title()
-print(new_name_final)
-
-# first_name = Sujata and last_name = Pathak
-'''
-after breaking 
-first part -> first name 
-last part -> last name
-'''
-
-first_name, last_name = new_name_final.split()
+first_name, last_name = new_name.split()
 print(first_name)
 print(last_name)
 
-myname = "nephx"
-print(myname.upper())
+name = "Altitude. Attitude. Alpha."
+firstname, middle, lastname = name.strip(".").replace(". ", " ").split()
+print(f"firstname : {firstname}")
+print(f"middle : {middle}")
+print(f"lastname : {lastname}")
 
-name = "  __-- firoj ##&& karki 123 @@"
-
-"""
-first_name = Firoj
-last_name - Karki
 
 """
 
-name.strip(" _-123@ ").replace(" ##&& ", " ")
-print(new_name)
+"""
+# Task2 
+name = "  __--&*) firoj ##&& karki 123 @@("
+
+result
+first_name = firoj
+last_name = Karki
+
+
+
+name = "  __--&*) firoj ##&& karki 123 @@("
+
+print(name)
+clean_name = name.strip(" _-&*)123@(").replace(" ##&& ", " ").title()
+first_name, last_name = clean_name.split()
+print(f"first_name : {first_name}") 
+print(f"last_name : {last_name}") 
+
+"""
+
+task = " $$ Samip ** % (+977)9842123546 "
+# first_name = Samip
+# ph_no = 9842123546
+
+clean_task = task.strip(" $").replace(" ** % (+977)", " ").capitalize()
+first_name, ph_no = clean_task.split()
+print(f"first_name : {first_name}")
+print(f"ph_no : {ph_no}")
+
