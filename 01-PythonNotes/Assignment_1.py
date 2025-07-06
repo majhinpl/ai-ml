@@ -135,4 +135,94 @@ print(grouped)
 # Trim push notifications to 40 characters.
 
 input = " NTC +2.5%! Buy recommendation maintained..."
-output
+output = input.strip(" ").replace("maintained...", "Maint...").title()
+print(output)
+
+# 10. Data Import from Banks
+# Clean CSV headers from banking partners
+input = [" Transaction_ID_", "_Amount__ "]
+output = [c.strip(" _").replace("_", " ") for c in input]
+print(output)
+
+# Hard Level (Advanced Financial Systems)
+# 1. Multi-Source Ticker Matching
+input = ["NTC@NEPSE", "*SCB*", "HIDCL-"]
+output = [k.strip("*-").replace("@NEPSE", "") for k in input]
+print(output)
+
+# 2. Real-Time Data Feed Sanitization
+# Process websocket streams with numeric prefixes.
+input = "12345|NTC|1520.25"
+output = input.lstrip("12345|")
+print(output)
+
+# 3. Forum Sentiment Corpus
+# Clean/analyze community discussions.
+# Output: {"Buy", "Ntc", "Scb", "Overvalued"}
+
+input = [" Buy NTC!! ", "SCB overvalued"]
+output = {word for sentence in input for word in sentence.strip(" ").replace("!!", "").title().split()}
+print(output) # need methods to get in ordered.
+
+# 4. Historical Data Reconciliation
+# Clean 20-year NEPSE records with inconsistent formatting.
+# output : {"year": 2005, "symbol": "NTC", "price": 1250.50}
+input = "2005;__NTC;1250.50_"
+clean_input = input.strip("_").replace(";__", " ").replace(";", " ").split()
+output = {
+    "year": int(clean_input[0]),
+    "symbol": clean_input[1],
+    "price" : float(clean_input[2])
+}
+print(output)
+
+# 5. Regulatory Document Processing
+# Extract cleaned company names from SEC filings.
+input = "Report for %%Nepal Investment Bank ltd.%%"
+output = input.strip("%").replace(" %%", " ").title()
+print(output)
+
+# 6. Automated News Summarization
+# Preprocess RSS feeds for AI models.
+# output : "Market Alert: Nepse Index Hits All Time High"
+input = "!!!MARKET ALRET: NEPSE_index_hits_all-time_high!!!"
+output = input.strip("!").replace("_", " ").replace("-", " ").title()
+print(output)
+
+# 7. Multi-Language Support
+# Clean Nepali/English mixed data
+# output = {"en": "Nepal Bank (NBL) +2.5%", "ne": "नेपाल बैंक (NBL) +2.5%"}
+input = "नेपाल बैंक (NBL) +2.5%"
+output = {
+    "en": "Nepal Bank (NBL) +2.5%",
+    "ne": input
+}
+print(output)
+
+# 8. Fraud Detection Logs
+# Sanitize suspicious activity reports.
+input = "USER123__; Multiple_orders; NTC; "
+clean_input = input.strip(" ").replace("__; ", " ").replace(";", "").split()
+output = {
+    "user" : clean_input[0],
+    "activity": clean_input[1].replace("_", " "),
+    "symbol": "NTC"
+
+}
+print(output)
+
+# 9. Portfolio Performance Reports
+# Clean PDF text extraction outputs.
+input = "Q4_2024: Return=12.5%___"
+output = input.strip("_").replace("_", " ").replace("=", " ")
+print(output)
+
+# 10. API Integration Pipeline
+# Process third-party financial data with inconsistent formats.
+# Output: {"stock": "NTC", "price": 1500.00}
+input = {"Stock": " NTC ", "Price": "Rs 1500.00 "}
+output = {
+    key.lower(): value.strip().replace("Rs ", "")
+    for key, value in input.items()
+}
+print(output)
