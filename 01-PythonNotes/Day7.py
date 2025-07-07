@@ -65,11 +65,18 @@ def add(a, b):
 def sub(a, b):
     return a - b
 
-def mins(a, b):
-    return a - b
+def mult(a, b):
+    return a * b
 
-def mins(a, b):
-    return a - b
+def div(a, b):
+    return a / b
 
-def mins(a, b):
-    return a - b
+def main():
+    print("Your Calculator")
+
+    data = input("Your inputs : ")
+
+    print(data)
+
+
+main()
