@@ -61,4 +61,3 @@ mtx = np.array([
     [2, 3, 6]
 ])
 
-new_col = np.array([])
