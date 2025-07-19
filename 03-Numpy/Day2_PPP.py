@@ -140,3 +140,16 @@ md = np.percentile(data, 50)
 q3 = np.percentile(data, 75)
 
 print("finding percentile : \n", q1)
+
+A = np.array([
+    [8, 3, -2],
+    [-4, 7, 5],
+    [3, 4, -12]
+])
+
+b = np.array([9, 15, 35])
+
+cal = np.linalg.solve(A, b)
+print("linalg solve : \n", cal)
+
+# vectorization and numpy.
